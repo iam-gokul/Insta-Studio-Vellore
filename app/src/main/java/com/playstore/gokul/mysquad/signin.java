@@ -29,8 +29,8 @@ public class signin extends AppCompatActivity {
         phn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                phn.animate().translationY(-550).setDuration(800).setStartDelay(200).start();
-                sign.animate().alpha(1).translationY(-550).setDuration(800).setStartDelay(600).start();
+                phn.animate().translationY(-650).setDuration(500).setStartDelay(100).start();
+                sign.animate().alpha(1).translationY(-650).setDuration(500).setStartDelay(300).start();
                 img.animate().alpha(0);
 
 
