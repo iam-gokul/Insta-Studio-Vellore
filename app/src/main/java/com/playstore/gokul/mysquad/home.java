@@ -43,7 +43,7 @@ public class home extends AppCompatActivity {
                         return true;
 
                     case R.id.nav_booking:
-                        setFragment(mHomeFragment);
+                        setFragment(mBookFragment);
                         return true;
 
                     case R.id.nav_orders:

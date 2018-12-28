@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/kyamehbg"
     tools:context=".signin">
 
     <ImageView
@@ -53,7 +54,7 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/bluebutton"
         android:text="Send OTP"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
