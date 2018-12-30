@@ -49,18 +49,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:layout_weight="8"
-                        android:src="@drawable/compass" />
+                        android:layout_weight="9"
+                        android:src="@drawable/marr" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:text="Me"
+                        android:layout_weight="1"
+                        android:fontFamily="casual"
+                        android:text="MARRIAGE"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:textSize="12sp"
+                        android:textStyle="normal" />
 
                 </LinearLayout>
 
@@ -90,18 +91,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:layout_weight="8"
-                        android:src="@drawable/compass" />
+                        android:layout_weight="9"
+                        android:src="@drawable/housee" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:text="Me"
+                        android:layout_weight="1"
+                        android:text="HOUSE WARMING"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:textSize="12sp"
+                        android:textStyle="normal"
+                        android:fontFamily="casual" />
 
                 </LinearLayout>
 
@@ -138,17 +140,19 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="8"
-                        android:src="@drawable/compass" />
+                        android:src="@drawable/house" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:text="Me"
+                        android:text="TRADITIONAL"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:textSize="12sp"
+                        android:fontFamily="casual"
+
+                        android:textStyle="normal" />
 
                 </LinearLayout>
 
@@ -179,17 +183,19 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="8"
-                        android:src="@drawable/compass" />
+                        android:src="@drawable/fc" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:text="Me"
+                        android:text="ADVERTISEMENT"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:textSize="12sp"
+                        android:fontFamily="casual"
+
+                        android:textStyle="normal" />
 
                 </LinearLayout>
 
@@ -225,18 +231,20 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:layout_weight="8"
-                        android:src="@drawable/compass" />
+                        android:layout_weight="9"
+                        android:src="@drawable/watch" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:text="Me"
+                        android:layout_weight="1"
+                        android:text="PRODUCT PHOTOGRAGY"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:textSize="12sp"
+                        android:fontFamily="casual"
+
+                        android:textStyle="normal" />
 
                 </LinearLayout>
 
@@ -267,17 +275,19 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="8"
-                        android:src="@drawable/compass" />
+                        android:src="@drawable/session" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:text="Me"
+                        android:text="EVENTS"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:textSize="12sp"
+                        android:fontFamily="casual"
+
+                        android:textStyle="normal" />
 
                 </LinearLayout>
 

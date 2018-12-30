@@ -39,8 +39,8 @@ public class BookFragment extends Fragment {
     MultiAutoCompleteTextView location;
     Button book;
     private DatabaseReference mDatabase;
-    TextInputEditText lastname;
-    TextInputLayout firstname;
+    EditText lastname;
+    EditText firstname;
     String fname,lname,address,fundate,uid,phone;
 
 
@@ -60,17 +60,18 @@ public class BookFragment extends Fragment {
         mView= inflater.inflate (R.layout.fragment_book, container, false);
 
         ExpandableCardView card = mView.findViewById(R.id.profile);
+
         mCalendarView =mView.findViewById (R.id.calender_view);
         myDate =mView.findViewById (R.id.bookDate);
 
         firstname = mView.findViewById (R.id.bookfirstname);
-        fname=firstname.toString();
+        fname=firstname.getText ().toString();
 
         lastname = mView.findViewById (R.id.booklastname);
-        lname=lastname.toString ();
+        lname=lastname.getText ().toString ();
 
         location = mView.findViewById (R.id.bookLocAddress);
-        address=location.toString ();
+        address=location.getText ().toString ();
 
 
         book = mView.findViewById (R.id.bookDone);
@@ -80,7 +81,7 @@ public class BookFragment extends Fragment {
         FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
         uid=currentFirebaseUser.getUid ();
 
-        phone=mDatabase.child ("bookings").child (uid).child ("phonenumber").toString ();
+        phone=mDatabase.child ("bookings").child (uid).child ("phonenumber").getDatabase ().toString ();
 
 
 
