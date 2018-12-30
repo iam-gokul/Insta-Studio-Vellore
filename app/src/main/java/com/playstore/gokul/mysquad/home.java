@@ -8,8 +8,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class home extends AppCompatActivity {
     private BottomNavigationView mMainView;
@@ -19,6 +27,7 @@ public class home extends AppCompatActivity {
     private BookFragment mBookFragment;
     private OrderFragment mOrderFragment;
     private ContactFragment mContactFragment;
+    String s1,uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +43,8 @@ public class home extends AppCompatActivity {
         mMainFrame=(FrameLayout) findViewById (R.id.main_frame);
         mMainView=(BottomNavigationView) findViewById (R.id.main_nav);
 
+        setFragment (mHomeFragment);
+
         mMainView.setOnNavigationItemSelectedListener (new BottomNavigationView.OnNavigationItemSelectedListener () {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -47,7 +58,7 @@ public class home extends AppCompatActivity {
                         return true;
 
                     case R.id.nav_orders:
-                        setFragment(mOrderFragment);
+                        setFragmentOrder(mOrderFragment);
                         return true;
 
                     case R.id.nav_contact:
@@ -61,6 +72,12 @@ public class home extends AppCompatActivity {
             }
         });
 
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
+        uid =currentFirebaseUser.getUid ().toString ();
+        DatabaseReference myRef = database.getReference().child ("bookings").child (uid);
+
+
     }
 
     private void setFragment(Fragment homefragment){
@@ -68,4 +85,43 @@ public class home extends AppCompatActivity {
         fragmentTransaction.replace (R.id.main_frame,homefragment);
         fragmentTransaction.commit ();
     }
+
+    private void setFragmentOrder(final Fragment homefragment){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
+        uid =currentFirebaseUser.getUid ().toString ();
+        DatabaseReference myRef = database.getReference().child ("bookings").child (uid);
+        myRef.addValueEventListener(new ValueEventListener () {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                s1 = dataSnapshot.child ("userdate").getValue(String.class);
+
+                if(s1!=null) {
+                    FragmentTransaction fragmentTransaction = getSupportFragmentManager ().beginTransaction ();
+                    fragmentTransaction.replace (R.id.main_frame,homefragment);
+                    fragmentTransaction.commit ();
+
+
+
+                }
+                else{
+                    Toast.makeText (home.this, "You haven't Booked any order yet!", Toast.LENGTH_LONG).show ();
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+            }
+        });
+
+
+
+
+    }
+
 }

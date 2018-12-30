@@ -1,13 +1,16 @@
 package com.playstore.gokul.mysquad;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,9 +24,12 @@ import android.widget.Toast;
 import com.alespero.expandablecardview.ExpandableCardView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.IgnoreExtraProperties;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -39,8 +45,8 @@ public class BookFragment extends Fragment {
     MultiAutoCompleteTextView location;
     Button book;
     private DatabaseReference mDatabase;
-    EditText lastname;
-    EditText firstname;
+    EditText last_name;
+    EditText first_name;
     String fname,lname,address,fundate,uid,phone;
 
 
@@ -64,26 +70,26 @@ public class BookFragment extends Fragment {
         mCalendarView =mView.findViewById (R.id.calender_view);
         myDate =mView.findViewById (R.id.bookDate);
 
-        firstname = mView.findViewById (R.id.bookfirstname);
-        fname=firstname.getText ().toString();
+        first_name = (EditText) mView.findViewById (R.id.bookfirstname);
 
-        lastname = mView.findViewById (R.id.booklastname);
-        lname=lastname.getText ().toString ();
+
+        last_name = mView.findViewById (R.id.booklastname);
+
 
         location = mView.findViewById (R.id.bookLocAddress);
-        address=location.getText ().toString ();
+
 
 
         book = mView.findViewById (R.id.bookDone);
 
        //Firebase
+
         mDatabase = FirebaseDatabase.getInstance().getReference();
         FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
         uid=currentFirebaseUser.getUid ();
 
         phone=mDatabase.child ("bookings").child (uid).child ("phonenumber").getDatabase ().toString ();
-
-
+        Log.d("Insta","Phone : "+ phone);
 
 
         mCalendarView.setOnDateChangeListener (new CalendarView.OnDateChangeListener () {
@@ -99,10 +105,49 @@ public class BookFragment extends Fragment {
         book.setOnClickListener (new View.OnClickListener () {
             @Override
             public void onClick(View v) {
-                writeNewBooking (uid,fname,lname,address,fundate,phone);
+                fname=first_name.getText().toString ();
+                lname=last_name.getText().toString();
+                address=location.getText().toString ();
+                writeNewBooking (uid,fname,lname,address,fundate);
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
+                uid =currentFirebaseUser.getUid ().toString ();
+                DatabaseReference myRef = database.getReference().child ("bookings").child (uid);
+                myRef.addValueEventListener(new ValueEventListener () {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        // This method is called once with the initial value and again
+                        // whenever data at this location is updated.
+                        String s1 = dataSnapshot.child ("status").getValue(String.class);
+
+                        if(s1!=null) {
+                            Toast.makeText (getActivity (), "You already have an On-Going Project!", Toast.LENGTH_LONG).show ();
+                        }
+                        else{
+                            if(fundate!=null){
+                                Toast.makeText (getActivity (), "Your Booking has been Recorded", Toast.LENGTH_SHORT).show ();
+                                Intent intent = new Intent (getActivity (),OrderFragment.class);
+                                startActivity (intent);
+
+                            }
+                            else{
+                                Toast.makeText (getActivity (), "Please Give Date", Toast.LENGTH_SHORT).show ();
+                            }
+
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError error) {
+                        // Failed to read value
+                    }
+                });
 
             }
         });
+
 
         return mView;
     }
@@ -112,27 +157,27 @@ public class BookFragment extends Fragment {
     @IgnoreExtraProperties
     public class User {
 
-        public String firstName,lastName,address,userdate,number;
+        public String firstName,lastName,address,userdate;
 
 
         public User() {
             // Default constructor required for calls to DataSnapshot.getValue(User.class)
         }
 
-        public User(String firstName, String lastName,String address,String userdate,String number) {
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.address = address;
-            this.userdate = userdate;
-            this.number=number;
+        public User(String fnn, String lnn,String add,String userdateee) {
+            this.firstName = fnn;
+            this.lastName = lnn;
+            this.address = add;
+            this.userdate = userdateee;
+            ;
 
         }
 
     }
 
     //Function to add Values in DB
-    private void writeNewBooking(String userId,String firstName, String lastName,String address,String userdate,String number) {
-        User user = new User(firstName,lastName,address,userdate,number);
+    private void writeNewBooking(String userId,String firstName, String lastName,String address,String userdate) {
+        User user = new User(firstName,lastName,address,userdate);
 
         mDatabase.child("bookings").child(userId).setValue(user);
     }

@@ -32,6 +32,7 @@
                     android:src="@drawable/ic_person" />
 
                 <TextView
+                    android:id="@+id/orderprofname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -68,10 +69,11 @@
                             android:textSize="15sp" />
 
                         <TextView
+                            android:id="@+id/ordernumbers"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingTop="10dp"
-                            android:text="0"
+                            android:text="1"
                             android:textColor="#8360c3"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -92,10 +94,11 @@
                             android:textSize="15sp" />
 
                         <TextView
+                            android:id="@+id/orderGoing"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingTop="10dp"
-                            android:text="0"
+                            android:text="1"
                             android:textColor="#8360c3"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -105,6 +108,56 @@
 
             </android.support.v7.widget.CardView>
         </RelativeLayout>
+
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
+            android:stretchColumns="1"
+            android:layout_marginTop="20dp">
+
+        <TableRow>
+            <TextView
+                android:layout_column="1"
+                android:text="Dates"
+                android:padding="10dip"
+                android:textStyle="bold"/>
+            <TextView
+                android:text="Status"
+                android:gravity="left"
+                android:padding="10dip"
+                android:textStyle="bold"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/ordera11"
+                android:layout_column="1"
+                android:text=""
+                android:padding="10dip" />
+            <TextView
+                android:id="@+id/ordera12"
+                android:text=""
+                android:gravity="left"
+                android:padding="10dip" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/ordera21"
+                android:layout_column="1"
+                android:text=""
+                android:padding="10dip" />
+            <TextView
+                android:id="@+id/ordera22"
+                android:text=""
+                android:gravity="right"
+                android:padding="10dip" />
+        </TableRow>
+
+        </TableLayout>
+
     </LinearLayout>
 
 

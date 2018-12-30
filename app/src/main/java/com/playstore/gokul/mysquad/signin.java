@@ -3,6 +3,7 @@ package com.playstore.gokul.mysquad;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -50,6 +51,7 @@ public class signin extends AppCompatActivity {
                 }
 
                 String phonenumber = "+" + "91" + number;
+                Log.d ("InstaStudio","Phn:"+phonenumber);
 
                 Intent intent = new Intent(signin.this,otp.class);
                 intent.putExtra("phonenumber", phonenumber);

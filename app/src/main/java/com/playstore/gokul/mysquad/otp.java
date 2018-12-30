@@ -39,9 +39,6 @@ public class otp extends AppCompatActivity {
         editText = findViewById(R.id.otptext);
 
         //Firebase
-
-
-
         phonenumber = getIntent().getStringExtra("phonenumber");
         sendVerificationCode(phonenumber);
         findViewById(R.id.otpsignbut).setOnClickListener(new View.OnClickListener() {
@@ -57,7 +54,6 @@ public class otp extends AppCompatActivity {
                     return;
                 }
                 verifyCode(code);
-
             }
         });
     }
@@ -71,11 +67,6 @@ public class otp extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            mDatabase = FirebaseDatabase.getInstance().getReference();
-                            FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
-                            uid=currentFirebaseUser.getUid ();
-                            mDatabase.child("bookings").child(uid).child("phonenumber").setValue(phonenumber);
-
                             Intent intent = new Intent(otp.this, home.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
@@ -124,26 +115,7 @@ public class otp extends AppCompatActivity {
 
         }
     };
-  /*  @IgnoreExtraProperties
-    public class User {
 
-        public String phoneNumber;
-
-        public User() {
-            // Default constructor required for calls to DataSnapshot.getValue(User.class)
-        }
-
-        public User(String phoneNumber) {
-            this.phoneNumber = phoneNumber;
-
-        }
-
-    }
-    private void writePhone(String userId,String number) {
-        User user = new User(number);
-
-        mDatabase.child("bookings").child(userId).setValue(user);
-    }*/
 }
 
 
