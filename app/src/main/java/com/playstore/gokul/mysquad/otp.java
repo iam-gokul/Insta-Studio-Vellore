@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,18 +30,28 @@ public class otp extends AppCompatActivity {
     private EditText editText;
     private DatabaseReference mDatabase;
     String uid,phonenumber;
+    TextView resend;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_otp);
         mAuth = FirebaseAuth.getInstance();
+        resend=findViewById (R.id.otpresend);
 
         editText = findViewById(R.id.otptext);
 
         //Firebase
         phonenumber = getIntent().getStringExtra("phonenumber");
         sendVerificationCode(phonenumber);
+
+        resend.setOnClickListener (new View.OnClickListener () {
+            @Override
+            public void onClick(View v) {
+                sendVerificationCode (phonenumber);
+                Toast.makeText (otp.this, "OPT resent request accepted!", Toast.LENGTH_SHORT).show ();            }
+        });
+
         findViewById(R.id.otpsignbut).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,7 +66,8 @@ public class otp extends AppCompatActivity {
                 }
                 verifyCode(code);
             }
-        });
+        }
+    );
     }
     private void verifyCode(String code){
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationid, code);
@@ -69,8 +81,6 @@ public class otp extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Intent intent = new Intent(otp.this, home.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-
-
                             startActivity(intent);
 
 

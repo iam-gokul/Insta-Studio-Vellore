@@ -27,6 +27,7 @@
 
             <!-- Column 1 -->
             <android.support.v7.widget.CardView
+
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
@@ -46,6 +47,10 @@
                     android:weightSum="10">
 
                     <ImageView
+                        android:id="@+id/homea11"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -56,7 +61,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:fontFamily="casual"
+                        android:fontFamily="@font/roboto_thin"
                         android:text="MARRIAGE"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
@@ -69,6 +74,7 @@
 
             <!-- Column 2 -->
             <android.support.v7.widget.CardView
+
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
@@ -88,6 +94,7 @@
                     android:weightSum="10">
 
                     <ImageView
+                        android:id="@+id/homea12"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -98,12 +105,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/roboto_thin"
                         android:text="HOUSE WARMING"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="12sp"
-                        android:textStyle="normal"
-                        android:fontFamily="casual" />
+                        android:textStyle="normal" />
 
                 </LinearLayout>
 
@@ -117,6 +124,7 @@
 
             <!-- Column 1 -->
             <android.support.v7.widget.CardView
+
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
@@ -136,6 +144,7 @@
                     android:weightSum="10">
 
                     <ImageView
+                        android:id="@+id/homea21"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -146,11 +155,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:fontFamily="@font/roboto_thin"
                         android:text="TRADITIONAL"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="12sp"
-                        android:fontFamily="casual"
 
                         android:textStyle="normal" />
 
@@ -160,6 +169,7 @@
 
             <!-- Column 2 -->
             <android.support.v7.widget.CardView
+
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
@@ -179,6 +189,7 @@
                     android:weightSum="10">
 
                     <ImageView
+                        android:id="@+id/homea22"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -189,11 +200,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:fontFamily="@font/roboto_thin"
                         android:text="ADVERTISEMENT"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="12sp"
-                        android:fontFamily="casual"
 
                         android:textStyle="normal" />
 
@@ -209,6 +220,7 @@
 
             <!-- Column 1 -->
             <android.support.v7.widget.CardView
+
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
@@ -228,6 +240,7 @@
                     android:weightSum="10">
 
                     <ImageView
+                        android:id="@+id/homea31"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -238,11 +251,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/roboto_thin"
                         android:text="PRODUCT PHOTOGRAGY"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="12sp"
-                        android:fontFamily="casual"
 
                         android:textStyle="normal" />
 
@@ -252,6 +265,7 @@
 
             <!-- Column 2 -->
             <android.support.v7.widget.CardView
+
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
@@ -271,6 +285,7 @@
                     android:weightSum="10">
 
                     <ImageView
+                        android:id="@+id/homea32"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -281,11 +296,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
+                        android:fontFamily="@font/roboto_thin"
                         android:text="EVENTS"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="12sp"
-                        android:fontFamily="casual"
 
                         android:textStyle="normal" />
 

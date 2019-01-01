@@ -98,18 +98,7 @@ public class home extends AppCompatActivity {
                 // whenever data at this location is updated.
                 s1 = dataSnapshot.child ("userdate").getValue(String.class);
 
-                if(s1!=null) {
-                    FragmentTransaction fragmentTransaction = getSupportFragmentManager ().beginTransaction ();
-                    fragmentTransaction.replace (R.id.main_frame,homefragment);
-                    fragmentTransaction.commit ();
 
-
-
-                }
-                else{
-                    Toast.makeText (home.this, "You haven't Booked any order yet!", Toast.LENGTH_LONG).show ();
-
-                }
 
             }
 
@@ -118,6 +107,18 @@ public class home extends AppCompatActivity {
                 // Failed to read value
             }
         });
+        if(s1!=null) {
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager ().beginTransaction ();
+            fragmentTransaction.replace (R.id.main_frame,homefragment);
+            fragmentTransaction.commit ();
+
+
+
+        }
+        else{
+            Toast.makeText (home.this, "You haven't Booked any order yet!", Toast.LENGTH_SHORT).show ();
+
+        }
 
 
 

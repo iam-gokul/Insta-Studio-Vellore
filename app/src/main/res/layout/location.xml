@@ -13,7 +13,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/roboto_thin"
         android:gravity="center"
         android:text="We operate Throughout Tamil Nadu" />
     <Space
@@ -21,10 +22,12 @@
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:layout_below="@+id/bookLocText"/>
-    <MultiAutoCompleteTextView
+
+    <EditText
         android:id="@+id/bookLocAddress"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/booklocspace1"
+        android:fontFamily="@font/roboto"
         android:hint="Where do we have to come?" />
 </RelativeLayout>

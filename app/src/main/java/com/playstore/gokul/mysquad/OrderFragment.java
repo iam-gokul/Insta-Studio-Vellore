@@ -23,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
  */
 public class OrderFragment extends Fragment {
     View mView;
-    TextView r1,r2,r3,r4;
+    TextView r1,r2,r3,r4,name;
     String s1,s2,s3,s4,uid;
 
     public OrderFragment() {
@@ -42,10 +42,12 @@ public class OrderFragment extends Fragment {
         r3=mView.findViewById (R.id.ordera21);
         r4=mView.findViewById (R.id.ordera22);
 
+        name=mView.findViewById (R.id.orderprofname);
+
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
-        uid =currentFirebaseUser.getUid ().toString ();
+        uid =currentFirebaseUser.getUid().toString();
         DatabaseReference myRef = database.getReference().child ("bookings").child (uid);
 
         myRef.addValueEventListener(new ValueEventListener () {
@@ -55,7 +57,10 @@ public class OrderFragment extends Fragment {
                 // whenever data at this location is updated.
                 s1 = dataSnapshot.child ("userdate").getValue(String.class);
                 s2=dataSnapshot.child ("status").getValue (String.class);
+                s3=dataSnapshot.child ("firstName").getValue (String.class);
                 r1.setText (s1);
+                name.setText (s3);
+
 
                 if(s2!=null) {
                     r2.setText (s2);

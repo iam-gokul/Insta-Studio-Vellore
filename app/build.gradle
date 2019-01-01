@@ -7,8 +7,8 @@ android {
         applicationId "com.playstore.gokul.mysquad"
         minSdkVersion 23
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode 7
+        versionName "7.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -39,5 +39,7 @@ dependencies {
     implementation 'com.alespero:expandable-cardview:0.8'
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.4'
+    implementation 'com.github.chrisbanes:PhotoView:2.1.0'
+    implementation 'it.sephiroth.android.library.imagezoom:imagezoom:2.2.5'
 }
 apply plugin: 'com.google.gms.google-services'

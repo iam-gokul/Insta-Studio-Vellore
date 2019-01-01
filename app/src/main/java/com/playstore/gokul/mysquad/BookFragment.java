@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.alespero.expandablecardview.ExpandableCardView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -42,7 +43,7 @@ public class BookFragment extends Fragment {
     View mView;
     CalendarView mCalendarView;
     TextView myDate;
-    MultiAutoCompleteTextView location;
+    EditText location;
     Button book;
     private DatabaseReference mDatabase;
     EditText last_name;
@@ -65,7 +66,7 @@ public class BookFragment extends Fragment {
 
         mView= inflater.inflate (R.layout.fragment_book, container, false);
 
-        ExpandableCardView card = mView.findViewById(R.id.profile);
+
 
         mCalendarView =mView.findViewById (R.id.calender_view);
         myDate =mView.findViewById (R.id.bookDate);
@@ -95,7 +96,7 @@ public class BookFragment extends Fragment {
         mCalendarView.setOnDateChangeListener (new CalendarView.OnDateChangeListener () {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                fundate = dayOfMonth+"/"+month+"/"+year;
+                fundate = dayOfMonth+"/"+(month+1)+"/"+year;
                 myDate.setText (fundate);
 
             }
@@ -126,8 +127,7 @@ public class BookFragment extends Fragment {
                         else{
                             if(fundate!=null){
                                 Toast.makeText (getActivity (), "Your Booking has been Recorded", Toast.LENGTH_SHORT).show ();
-                                Intent intent = new Intent (getActivity (),OrderFragment.class);
-                                startActivity (intent);
+
 
                             }
                             else{

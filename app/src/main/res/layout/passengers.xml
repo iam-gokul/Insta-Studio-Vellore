@@ -22,8 +22,9 @@
             android:id="@+id/bookfirstname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
             android:hint="First Name"
-            android:inputType="text"/>
+            android:inputType="text" />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -35,8 +36,9 @@
             android:id="@+id/booklastname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
             android:hint="Last Name"
-            android:inputType="text"/>
+            android:inputType="text" />
 
     </android.support.design.widget.TextInputLayout>
 

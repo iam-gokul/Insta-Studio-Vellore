@@ -37,6 +37,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
+                    android:fontFamily="@font/roboto_bold"
                     android:text="John Doe"
                     android:textColor="#fff"
                     android:textSize="20sp"
@@ -65,6 +66,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
                             android:text="Orders"
                             android:textSize="15sp" />
 
@@ -72,6 +74,7 @@
                             android:id="@+id/ordernumbers"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
                             android:paddingTop="10dp"
                             android:text="1"
                             android:textColor="#8360c3"
@@ -90,6 +93,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
                             android:text="On-going"
                             android:textSize="15sp" />
 
@@ -97,6 +101,7 @@
                             android:id="@+id/orderGoing"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
                             android:paddingTop="10dp"
                             android:text="1"
                             android:textColor="#8360c3"
@@ -118,16 +123,20 @@
             android:layout_marginTop="20dp">
 
         <TableRow>
+
             <TextView
                 android:layout_column="1"
-                android:text="Dates"
+                android:fontFamily="@font/roboto"
                 android:padding="10dip"
-                android:textStyle="bold"/>
+                android:text="Dates"
+                android:textStyle="bold" />
+
             <TextView
-                android:text="Status"
+                android:fontFamily="@font/roboto"
                 android:gravity="left"
                 android:padding="10dip"
-                android:textStyle="bold"/>
+                android:text="Status"
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow>
